@@ -7,4 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello step
-        run: echo "welcome to github action"
+        run: |
+         echo " this is line one "
+         echo "tis is line two"
+         echo "tis is line four"
+         echo "tis is line three"
+        
