@@ -1,11 +1,13 @@
-name: Hello World
+name: actions
 
 on: push
 
 jobs:
-  build:
+  action_demo:
     runs-on: ubuntu-latest
     steps:
-      - name: build step
-        run: echo " Heloo , ${{ secrets.PASSWORD }}"
+      - name: action-checkout
+        uses: action/checkout@v4
+      - name: Print index.html file
+        run: cat index.html
 
