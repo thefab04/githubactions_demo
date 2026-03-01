@@ -1,7 +1,7 @@
-#**CI/CD Pipeline with GitHub Actions – Internship Task 2**
+# **CI/CD Pipeline with GitHub Actions – Internship Task 2**
 
 
-##Steps Performed
+## Steps Performed
 
 1.Created GitHub Actions workflow file inside .github/workflows/main.yml
 2.Configured pipeline trigger on push to main branch
@@ -15,21 +15,21 @@
 10.Demonstrated automated deployment process
 
 
-#Pipeline Configuration
+# Pipeline Configuration
 
-##Workflow File Location:
+## Workflow File Location:
 
 .github/workflows/main.yml
 
 
-##Pipeline Trigger
+## Pipeline Trigger
 on:
   push:
     branches:
       - main
 
 
-##CI/CD Workflow Stages
+## CI/CD Workflow Stages
 
 1️⃣ Checkout Repository
 The runner checks out the latest source code.
