@@ -54,7 +54,7 @@ Docker Compose builds and runs containers automatically.
 
 # Conclusion
 
-##This task demonstrates the implementation of a fully automated CI/CD pipeline using GitHub Actions, where every code push triggers:\
+## This task demonstrates the implementation of a fully automated CI/CD pipeline using GitHub Actions, where every code push triggers:\
 -Build process\
 -Docker image creation\
 -Deployment workflow\
