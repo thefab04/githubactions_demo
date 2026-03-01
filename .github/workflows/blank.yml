@@ -1,23 +1,36 @@
-name: actions
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-      - develop
-      - release/**'
-
-  pull_request:
-    branches:
-      - main
-      
 
 jobs:
-  action_demo:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: action-checkout
-        uses: actions/checkout@v6
-      - name: Print index.html file
-        run: cat index.html
 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Backend Dependencies
+        run: |
+          cd server
+          npm install
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd client
+          npm install
+          npm run build
+
+      - name: Build Docker Images
+        run: docker compose build
+
+      - name: Deploy
+        run: echo "Deploying application..."
