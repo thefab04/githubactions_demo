@@ -1,21 +1,36 @@
-name: Hello World
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-      - develop
-      - release/**'
-
-  pull_request:
-    branches:
-      - main
-      
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: build step
-        run: echo " a demo build "
 
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install Backend Dependencies
+      run: |
+        cd server
+        npm install
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd client
+        npm install
+        npm run build
+
+    - name: Build Docker Images
+      run: docker-compose build
+
+    - name: Deploy
+      run: echo "Deploying application..."
